@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>사용자 - 야생동물정보관리 - 야생동물정보 관리</title>
+
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/component.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/font/NotoSans/fonts.css">
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="../js/layout.js"></script>
+    <script>
+        $(function(){
+            $('.body').on("touchstart mousedown", function(){
+                $('.menu-open').removeClass("open");
+                $('.body').stop().animate({
+                    left: '0'
+                },200);
+
+                $('.lnb-box.mobile').stop().animate({
+                    left:'-220px'
+                },200);
+            })
+
+            $('.menu-open').on("click", function() {
+
+                if($(this).hasClass("open")) {
+
+                    $('.body').stop().animate({
+                        left: '0'
+                    },200);
+
+                    $('.lnb-box.mobile').stop().animate({
+                        left:'-220px'
+                    },200);
+                } else {
+
+                    $('.body').stop().animate({
+                        left: '220px'
+                    },200);
+
+                    $('.lnb-box.mobile').stop().animate({
+                        left:0
+                    },200);
+
+                }
+
+
+                $(this).toggleClass("open");
+
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="mo-header">
+        <button type="button" class="menu-open skip">열기</button>
+        <div class="mo-logo"><a href="#"><img src="../images/logo.png" alt="국립공원공단 국립공원연구원"></a></div>
+    </div>
+    <div class="lnb-box user mobile">
+        <ul>
+            <li class="item">
+                <a href="#" class="has-sub-off">야생동물 정보관리</a>
+                <div class="sub-menu-box">
+                    <ul>
+                        <li>
+                            <a href="#">야생동물 정보관리</a>
+                        </li>
+                        <li>
+                            <a href="#">야생동물 정보등록</a>
+                        </li>
+                        <li>
+                            <a href="#">야생동물 정보목록</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="item gis">
+                <a href="#" class="has-sub-off">GIS 서비스</a>
+                <div class="sub-menu-box">
+                    <ul>
+                        <li class="item">
+                            <a href="#">실시간 위치정보</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <header class="header">
+        <div class="header-inner clear-fix pl30 pr30">
+            <h1 class="userpg-logo"><a href="#"><img src="../images/logo.png" alt="국립공원공단 국립공원연구원"></a></h1>
+            <div class="gnb">
+                <ul class="clear-fix">
+                    <li class="gnb-home">
+                        <a href="#"><img src="../images/ico_home.png" alt="홈"><span>홈</span></a>
+                    </li>
+                    <li class="gnb-login">
+                        <a href="#"><img src="../images/ico_login.png" alt="로그인"><span>로그인</span></a>
+                    </li>
+                    <li class="gnb-myinfo">
+                        <a href="#"><img src="../images/ico_myinfo.png" alt="로그인"><span>개인정보<br>수정</span></a>
+                    </li>
+                    <!--                        <li class="gnb-login">-->
+                    <!--                            <a href="#"><img src="../images/ico_login.png" alt="로그인"><span>로그아웃</span></a>-->
+                    <!--                        </li>-->
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="lnb-box user">
+            <ul>
+                <li class="item">
+                    <a href="#" class="has-sub-off">야생동물 정보관리</a>
+                    <div class="sub-menu-box">
+                        <ul>
+                            <li>
+                                <a href="#">야생동물 정보관리</a>
+                            </li>
+                            <li>
+                                <a href="#">야생동물 정보등록</a>
+                            </li>
+                            <li>
+                                <a href="#">야생동물 정보목록</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="item gis">
+                    <a href="#" class="has-sub-off">GIS 서비스</a>
+                    <div class="sub-menu-box">
+                        <ul>
+                            <li class="item">
+                                <a href="#">실시간 위치정보</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="right-contents">
+            <h2 class="header1 mb10 fw-400">야생동물정보관리</h2>
+            <p class="header2 gray mb20">야생동물 정보관리</p>
+            <div class="con-box box2 inform-set">
+                <form>
+                    <div class="clear-fix mb20">
+                        <p class="txt-label float-lt mr10">관리코드 : RF-05-04-04(화엄)</p>
+                        <p class="txt-label float-lt">현상황 : 지리산</p>
+                    </div>
+                    <div class="tb-type2 register pc">
+                        <table class="tb-default">
+                            <tbody>
+                            <tr>
+                                <th scope="row" class="bg-lightblue">성별</th>
+                                <td>
+                                    <select class="select-full bg-lightblue">
+                                        <option value="암컷">암컷</option>
+                                        <option value="수컷">수컷</option>
+                                    </select>
+                                </td>
+                                <th scope="row" class="bg-lightblue">출생지</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <th scope="row" colspan="2" class="bg-lightblue">출생일</th>
+                                <td>
+                                    <div class="calendar-wr">
+                                        <input type="text" class="input-full bg-lightblue date_picker" id="idForLabel-2">
+                                        <img src="../images/ico_calendar.png" alt="달력클릭">
+                                    </div>
+                                </td>
+                                <th scope="row" class="bg-lightblue">그룹</th>
+                                <td class="group-select">
+                                    <button class="btn-md bg-skyblue white mr10" data-pop-btn="그룹선택">그룹선택</button>
+                                    <input type="text" class="input-full bg-lightblue"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-lightblue">도입일
+                                    <storng class="red">(*)</storng>
+                                </th>
+                                <td>
+                                    <div class="calendar-wr">
+                                        <input type="text" class="input-full bg-lightblue date_picker">
+                                        <img src="../images/ico_calendar.png" alt="달력클릭">
+                                    </div>
+                                </td>
+                                <th scope="row" class="bg-lightblue">방사일</th>
+                                <td>
+                                    <div class="calendar-wr">
+                                        <input type="text" class="input-full bg-lightblue date_picker">
+                                        <img src="../images/ico_calendar.png" alt="달력클릭">
+                                    </div>
+                                </td>
+                                <th rowspan="2" class="bg-lightblue">방사장소</th>
+                                <th class="bg-lightblue">위치</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <td rowspan="4" colspan="2">
+                                    <div class="photo-box">
+                                        <img src="../images/no_img.jpg" alt="이미지없음">
+                                        <div class="txt-align-ct">
+                                            <div class="box-file-input col-file">
+                                                <label class="photo-change">
+                                                    <input type="file" name="ev_display_<?php echo $k; ?>"
+                                                           class="file-input" accept="image/*">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-lightblue">표식기</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <th scope="row" class="bg-lightblue">마이크로칩</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <th class="bg-lightblue">좌표</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-lightblue">모(母)</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <th scope="row" class="bg-lightblue">부(父)</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <th colspan="2" class="bg-lightblue">회수<br>/ 폐사일</th>
+                                <td>
+                                    <div class="calendar-wr">
+                                        <input type="text" class="input-lg bg-lightblue date_picker">
+                                        <img src="../images/ico_calendar.png" alt="달력클릭">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-lightblue">IoT센서ID</th>
+                                <td><input type="text" class="input-full bg-lightblue"></td>
+                                <td colspan="5"><label for="labelForId-10"><input type="checkbox" id="labelForId-10"
+                                                                                  class="chkbox-md inline-block mt-4 mr5">생태학습장
+                                    위치</label></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tb-type2 register mobile">
+                        <div class="wa-set">
+                            <div class="photo-box">
+                                <img src="../images/no_img.jpg" alt="이미지없음">
+                                <div class="txt-align-ct">
+                                    <div class="box-file-input col-file">
+                                        <label class="photo-change">
+                                            <input type="file" name="ev_display_<?php echo $k; ?>" class="file-input" accept="image/*">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="clear-fix mt20">
+                                <li class="lt-bd">
+                                    <div class="clear-fix">
+                                        <span class="cell-tit bg-lightblue">성별</span>
+                                        <div class="cell-form">
+                                            <select class="select-full bg-lightblue">
+                                                <option value="암컷">암컷</option>
+                                                <option value="수컷">수컷</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li >
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">출생지</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">그룹선택</span>
+                                        <div class="cell-form">
+                                            <button class="btn-md bg-skyblue white mr5" data-pop-btn="그룹선택">그룹선택</button>
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">출생일</span>
+                                        <div class="cell-form">
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-full bg-lightblue date_picker" id="idForLabel-11">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">도입일</span>
+                                        <div class="cell-form">
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-full bg-lightblue date_picker" id="idForLabel-12">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">방사일</span>
+                                        <div class="cell-form">
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-full bg-lightblue date_picker" id="idForLabel-13">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="place lt-bd">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">방사장소</span>
+                                        <div class="cell-form clear-fix">
+                                            <div class="cell-col">
+                                                <span class="cell-tit">위치</span>
+                                                <div class="cell-form">
+                                                    <input type="text" class="input-full bg-lightblue">
+                                                </div>
+                                            </div>
+                                            <div class="cell-col">
+                                                <span class="cell-tit">위치</span>
+                                                <div class="cell-form">
+                                                    <input type="text" class="input-full bg-lightblue">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">표식기</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">마이크로칩</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">모(母)</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">부(父)</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">회수/폐사일</span>
+                                        <div class="cell-form">
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-full bg-lightblue date_picker" id="idForLabel-14">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-100">
+                                    <div>
+                                        <span class="cell-tit bg-lightblue">IoT센서ID</span>
+                                        <div class="cell-form">
+                                            <input type="text" class="input-full bg-lightblue">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="lt-bd chk-box">
+                                    <label for="labelForId-15"><input type="checkbox" id="labelForId-15" class="chkbox-md inline-block mt-4 mr5">생태학습장
+                                        위치</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="txt-align-rt mt20 mb20">
+                        <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                        <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                    </div>
+                    <div id="tab-wrap">
+                        <ul class="tabs">
+                            <li class="current" data-tab="tab1"><a href="#">개체이력</a></li>
+                            <li data-tab="tab2"><a href="#">동면현황</a></li>
+                            <li data-tab="tab3"><a href="#">첨부파일</a></li>
+                        </ul>
+                        <div id="tab1" class="tab-con current">
+                            <table class="tb-default mb20">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="bg-lightblue"><input type="checkbox" class="chkbox-md"></th>
+                                    <th scope="col" class="bg-lightblue">일자</th>
+                                    <th scope="col" class="bg-lightblue">이력구분</th>
+                                    <th scope="col" class="bg-lightblue">내용</th>
+                                    <th scope="col" class="bg-lightblue">X</th>
+                                    <th scope="col" class="bg-lightblue">Y</th>
+                                    <th scope="col" class="bg-lightblue">고도</th>
+                                    <th scope="col" class="bg-lightblue">발신기A</th>
+                                    <th scope="col" class="bg-lightblue">발신기B</th>
+                                    <th scope="col" class="bg-lightblue">IoT 센서</th>
+                                    <th scope="col" class="bg-lightblue">이미지</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- 개체이력등록 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">개체 이력 등록</p>
+                                <table class="tb-default">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue" colspan="2">발생 일자<strong class="red">(*)</strong></th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                        <th class="bg-lightblue" colspan="2">이력구분
+                                            <storng class="red">(*)</storng>
+                                        </th>
+                                        <td>
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="구분선택">구분선택</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue" rowspan="3">위치</th>
+                                        <th class="bg-lightblue">X</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue" rowspan="3">센서</th>
+                                        <th class="bg-lightblue">A</th>
+                                        <td class="sensor">
+                                            <input type="text" class="input-full bg-lightblue mt-4">
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="AM">AM</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">Y</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue">B</th>
+                                        <td class="sensor">
+                                            <input type="text" class="input-full bg-lightblue mt-4">
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="PM">PM</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">고도</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue">IoT</th>
+                                        <td>
+                                            <input type="text" class="input-lg bg-lightblue mt-4">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">내용</th>
+                                        <td colspan="5">
+                                            <textarea class="bg-lightblue board-txtarea" cols="30" rows="10"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">첨부파일</th>
+                                        <td colspan="5">
+                                            <div class="box-file-input col-file">
+                                                <span class="filename">파일을 선택해주세요.</span>
+                                                <label>
+                                                    <input type="file" name="ev_display_<?php echo $k; ?>"
+                                                           class="file-input" accept="image/*">
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- //개체이력등록 -->
+
+                            <!-- 개체이력수정 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">개체 이력 수정</p>
+                                <table class="tb-default">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue" colspan="2">발생 일자<strong class="red">(*)</strong></th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                        <th class="bg-lightblue" colspan="2">이력구분
+                                            <storng class="red">(*)</storng>
+                                        </th>
+                                        <td>
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="구분선택">구분선택</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue" rowspan="3">위치</th>
+                                        <th class="bg-lightblue">X</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue" rowspan="3">센서</th>
+                                        <th class="bg-lightblue">A</th>
+                                        <td class="sensor">
+                                            <input type="text" class="input-lg bg-lightblue mt-4">
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="AM">AM</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">Y</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue">B</th>
+                                        <td class="sensor">
+                                            <input type="text" class="input-lg bg-lightblue mt-4">
+                                            <select class="select-xl bg-lightblue">
+                                                <option value="PM">PM</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">고도</th>
+                                        <td><input type="text" class="input-lg bg-lightblue"></td>
+                                        <th class="bg-lightblue">IoT</th>
+                                        <td>
+                                            <input type="text" class="input-lg bg-lightblue mt-4">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">내용</th>
+                                        <td colspan="5">
+                                            <textarea class="bg-lightblue board-txtarea" cols="30" rows="10"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">첨부파일</th>
+                                        <td colspan="5">
+                                            <div class="clear-fix">
+                                                <a href="#" class="col-img-link float-lt mt5">KM-053.jpg</a>
+                                                <div class="box-file-input col-file float-rt">
+                                                    <label class="photo-change">
+                                                        <input type="file" name="ev_display_<?php echo $k; ?>"
+                                                               class="file-input" accept="image/*">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- //개체이력수정 -->
+                        </div>
+                        <div id="tab2" class="tab-con">
+                            <table class="tb-default mb20">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="bg-lightblue"><input type="checkbox" class="chkbox-md"></th>
+                                    <th scope="col" class="bg-lightblue">번호</th>
+                                    <th scope="col" class="bg-lightblue">시작일자</th>
+                                    <th scope="col" class="bg-lightblue">종료일자</th>
+                                    <th scope="col" class="bg-lightblue">동면장소</th>
+                                    <th scope="col" class="bg-lightblue">X</th>
+                                    <th scope="col" class="bg-lightblue">Y</th>
+                                    <th scope="col" class="bg-lightblue">고도</th>
+                                    <th scope="col" class="bg-lightblue">유형</th>
+                                    <th scope="col" class="bg-lightblue">비고</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td>2020-10-06</td>
+                                    <td>2020-10-06</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>비고사항 기입</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- 동면현황 등록 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">동면현황 등록</p>
+                                <table class="tb-default">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue">시작일자<strong class="red">(*)</strong></th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                        <th class="bg-lightblue">종료일자
+                                            <storng class="red">(*)</storng>
+                                        </th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table class="tb-default mt30">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue" scope="col" colspan="5">동면위치</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" colspan="2" class="bg-lightblue">장소<strong class="red">(*)</strong></th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                        <th scope="col" class="bg-lightblue">유형</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" rowspan="3" class="bg-lightblue">위치좌표</th>
+                                        <th scope="col" class="bg-lightblue">X</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                        <th scope="col" rowspan="3" class="bg-lightblue">비고</th>
+                                        <td scope="row" rowspan="3"><textarea cols="30" rows="10"
+                                                                              class="board-txtarea bg-lightblue"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="bg-lightblue">Y</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="bg-lightblue">고도</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- //동면현황 등록 -->
+                            <!-- 동면현황 수정 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">동면현황 수정</p>
+                                <table class="tb-default">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue">시작일자<strong class="red">(*)</strong></th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                        <th class="bg-lightblue">종료일자
+                                            <storng class="red">(*)</storng>
+                                        </th>
+                                        <td>
+                                            <div class="calendar-wr">
+                                                <input type="text" class="input-md bg-lightblue date_picker">
+                                                <img src="../images/ico_calendar.png" alt="달력클릭">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table class="tb-default mt30">
+                                    <tbody>
+                                    <tr>
+                                        <th class="bg-lightblue" scope="col" colspan="5">동면위치</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" colspan="2" class="bg-lightblue">장소<strong class="red">(*)</strong></th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                        <th scope="col" class="bg-lightblue">유형</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" rowspan="3"  class="bg-lightblue">위치좌표</th>
+                                        <th scope="col" class="bg-lightblue">X</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                        <th scope="col" rowspan="3" class="bg-lightblue">비고</th>
+                                        <td scope="row" rowspan="3"><textarea cols="30" rows="10"
+                                                                              class="board-txtarea bg-lightblue"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" class="bg-lightblue">Y</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"  class="bg-lightblue">고도</th>
+                                        <td scope="row"><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- //동면현황 수정 -->
+                        </div>
+                        <div id="tab3" class="tab-con">
+                            <table class="tb-default mb20">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="bg-lightblue"><input type="checkbox" class="chkbox-md"></th>
+                                    <th scope="col" class="bg-lightblue">일자</th>
+                                    <th scope="col" class="bg-lightblue">이력구분</th>
+                                    <th scope="col" class="bg-lightblue">내용</th>
+                                    <th scope="col" class="bg-lightblue">X</th>
+                                    <th scope="col" class="bg-lightblue">Y</th>
+                                    <th scope="col" class="bg-lightblue">고도</th>
+                                    <th scope="col" class="bg-lightblue">발신기A</th>
+                                    <th scope="col" class="bg-lightblue">발신기B</th>
+                                    <th scope="col" class="bg-lightblue">IoT 센서</th>
+                                    <th scope="col" class="bg-lightblue">이미지</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>2004-11-01</td>
+                                    <td>건강검진</td>
+                                    <td>치아상태 검진</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><a href="#" class="col-img-link">KM-053.jpg</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- 첨부파일 목록 상세 -->
+                            <table class="tb-default board mb20">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="bg-lightblue col1"><input type="checkbox" class="chkbox-md">
+                                    </th>
+                                    <th scope="col" class="bg-lightblue col1">번호</th>
+                                    <th scope="col" class="bg-lightblue">파일명</th>
+                                    <th scope="col" class="bg-lightblue">파일유형</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td>1</td>
+                                    <td>곰치아 사진</td>
+                                    <td>이미지</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="checkbox" class="chkbox-md"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- //첨부파일 목록 상세 -->
+                            <!-- 첨부파일 등록 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">첨부파일 등록</p>
+                                <table class="tb-default">
+                                    <tr>
+                                        <th class="bg-lightblue">파일명 <strong class="red">(*)</strong></th>
+                                        <td><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">파일설명</th>
+                                        <td><textarea cols="30" rows="10" class="board-txtarea bg-lightblue"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">첨부파일</th>
+                                        <td>
+                                            <div class="box-file-input col-file">
+                                                <span class="filename">파일을 선택해주세요.</span>
+                                                <label>
+                                                    <input type="file" name="ev_display_<?php echo $k; ?>"
+                                                           class="file-input" accept="image/*">
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- //첨부파일 등록 -->
+                            <!-- 첨부파일 수정 -->
+                            <div class="tb-type2 col-tab mb20">
+                                <p class="tab-tb-tit">첨부파일 수정</p>
+                                <table class="tb-default">
+                                    <tr>
+                                        <th class="bg-lightblue">파일명 <strong class="red">(*)</strong></th>
+                                        <td><input type="text" class="input-xlg bg-lightblue"></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">파일설명</th>
+                                        <td><textarea cols="30" rows="10" class="board-txtarea bg-lightblue"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="bg-lightblue">첨부파일</th>
+                                        <td>
+                                            <div class="clear-fix">
+                                                <a href="#" class="col-img-link float-lt mt5">KM-053.jpg</a>
+                                                <div class="box-file-input col-file float-rt">
+                                                    <label class="photo-change">
+                                                        <input type="file" name="ev_display_<?php echo $k; ?>"
+                                                               class="file-input" accept="image/*">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- //첨부파일 수정 -->
+                        </div>
+                    </div>
+                    <div class="txt-align-rt mt20 mb20">
+                        <button type="button" class="btn-xs bd-darkgray bg-white gray">목록</button>
+                        <button type="button" class="btn-xs bg-darkgray white">수정</button>
+                        <button type="button" class="btn-xs bg-skyblue white">등록</button>
+                    </div>
+                    <!--레이어 팝업-->
+                    <div class="layer-pop pop2 pop-wd250 bd-lightgray" data-pop-window="그룹선택">
+                        <div class="pop-hd">
+                            <p>그룹선택</p>
+                            <button type="button" class="close pop-btn"><span class="skip">닫기</span></button>
+                        </div>
+                        <div class="pop-con">
+                            <ul>
+                                <li><a href="#">곰</a></li>
+                                <li><a href="#">여우</a></li>
+                                <li>
+                                    <a href="#">산양</a>
+                                    <ol class="pop-list-sub">
+                                        <li><a href="#">방사종</a></li>
+                                        <li><a href="#">복원대상종</a></li>
+                                        <li><a href="#">종식종</a></li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="banner-list mt20">
+                <ul class="clear-fix">
+                    <li><img src="../images/footer_enviroment.png" alt="환경부"></li>
+                    <li><img src="../images/footer_park.png" alt="국립공원관리공단"></li>
+                    <li><img src="../images/footer_nia.png" alt="nia한국정보화진흥원"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.tabs li').click(function (e) {
+            e.preventDefault();
+            var activeTab = $(this).attr('data-tab');
+            $('.tabs li').removeClass('current');
+            $('.tab-con').removeClass('current');
+            $(this).addClass('current');
+            $('#' + activeTab).addClass('current');
+        })
+    });
+</script>
+</body>
+</html>

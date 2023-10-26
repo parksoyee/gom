@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>사용자 - gis서비스 - 실시간위치정보</title>
+
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/component.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/gis/gis.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/font/NotoSans/fonts.css">
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/gis/gis_script.js"></script>
+    <script>
+        $(function(){
+            $('.body').on("touchstart mousedown", function(){
+                $('.menu-open').removeClass("open");
+                $('.body').stop().animate({
+                    left: '0'
+                },200);
+
+                $('.lnb-box.mobile').stop().animate({
+                    left:'-220px'
+                },200);
+            })
+
+            $('.menu-open').on("click", function() {
+
+                if($(this).hasClass("open")) {
+
+                    $('.body').stop().animate({
+                        left: '0'
+                    },200);
+
+                    $('.lnb-box.mobile').stop().animate({
+                        left:'-220px'
+                    },200);
+                } else {
+
+                    $('.body').stop().animate({
+                        left: '220px'
+                    },200);
+
+                    $('.lnb-box.mobile').stop().animate({
+                        left:0
+                    },200);
+
+                }
+
+
+                $(this).toggleClass("open");
+
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="mo-header">
+        <button type="button" class="menu-open skip">열기</button>
+        <div class="mo-logo"><a href="#"><img src="../images/logo.png" alt="국립공원공단 국립공원연구원"></a></div>
+    </div>
+    <div class="lnb-box user mobile">
+        <ul>
+            <li class="item">
+                <a href="#" class="has-sub-off">야생동물 정보관리</a>
+                <div class="sub-menu-box">
+                    <ul>
+                        <li>
+                            <a href="#">야생동물 정보관리</a>
+                        </li>
+                        <li>
+                            <a href="#">야생동물 정보등록</a>
+                        </li>
+                        <li>
+                            <a href="#">야생동물 정보목록</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="item gis">
+                <a href="#" class="has-sub-off">GIS 서비스</a>
+                <div class="sub-menu-box">
+                    <ul>
+                        <li class="item">
+                            <a href="#">실시간 위치정보</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <header class="header">
+        <div class="header-inner clear-fix pl30 pr30">
+            <h1 class="userpg-logo"><a href="#"><img src="../images/logo.png" alt="국립공원공단 국립공원연구원"></a></h1>
+            <div class="gnb">
+                <ul class="clear-fix">
+                    <li class="gnb-home">
+                        <a href="#"><img src="../images/ico_home.png" alt="홈"><span>홈</span></a>
+                    </li>
+                    <li class="gnb-login">
+                        <a href="#"><img src="../images/ico_login.png" alt="로그인"><span>로그인</span></a>
+                    </li>
+                    <li class="gnb-myinfo">
+                        <a href="#"><img src="../images/ico_myinfo.png" alt="로그인"><span>개인정보<br>수정</span></a>
+                    </li>
+                    <!--                        <li class="gnb-login">-->
+                    <!--                            <a href="#"><img src="../images/ico_login.png" alt="로그인"><span>로그아웃</span></a>-->
+                    <!--                        </li>-->
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="body">
+        <div class="lnb-box user">
+            <ul>
+                <li class="item">
+                    <a href="#" class="has-sub-off">야생동물 정보관리</a>
+                    <div class="sub-menu-box">
+                        <ul>
+                            <li>
+                                <a href="#">야생동물 정보관리</a>
+                            </li>
+                            <li>
+                                <a href="#">야생동물 정보등록</a>
+                            </li>
+                            <li>
+                                <a href="#">야생동물 정보목록</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="item gis">
+                    <a href="#" class="has-sub-off">GIS 서비스</a>
+                    <div class="sub-menu-box">
+                        <ul>
+                            <li class="item">
+                                <a href="#">실시간 위치정보</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+            <div class="gis-contents">
+                <h2 class="skip">gis서비스</h2>
+                <div class="gis-inner">
+                    <div class="gis-menuBar">
+                        <ul>
+                            <li><a href="#" class="service on" id="gisMenuBtn1"><span class="skip">실시간 위치정보</span></a></li>
+                            <li><a href="#" class="layer" id="gisMenuBtn2"><span class="skip">레이어</span></a></li>
+                            <li><a href="#" class="space" id="gisMenuBtn3"><span class="skip">공간정보관리</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="gis-modal location hide" id="leftLayer1">
+                        <button class="gis-open-left" id="leftLayerBtn1"><span class="skip">옵션 열기</span></button>
+                        <div class="gis-modal-wrap">
+                            <form>
+                                <div class="gis-box search mt10 mb10">
+                                    <h3 class="gis-tit">실시간 위치정보</h3>
+                                    <div class="row clear-fix">
+                                        <label class="form-name" for="city">시도 :</label>
+                                        <select class="gis-form bg-lightblue" id="city">
+                                            <option value="시도 선택">시도 선택</option>
+                                            <option value="전라남도">전라남도</option>
+                                            <option value="전라북도">전라북도</option>
+                                            <option value="서울특별시">서울특별시</option>
+                                            <option value="대전광역시">대전광역시</option>
+                                        </select>
+                                    </div>
+                                    <div class="row clear-fix">
+                                        <label class="form-name" for="county">시군구 :</label>
+                                        <select class="gis-form bg-lightblue" id="county">
+                                            <option value="시군구 선택">시군구 선택</option>
+                                            <option value="구례군">구례군</option>
+                                            <option value="순천시">순천시</option>
+                                            <option value="광양시">광양시</option>
+                                        </select>
+                                    </div>
+                                    <div class="row clear-fix">
+                                        <label class="form-name" for="neibh">읍면동 :</label>
+                                        <select class="gis-form bg-lightblue" id="neibh">
+                                            <option value="읍면동 선택">읍면동 선택</option>
+                                            <option value="구례읍">구례읍</option>
+                                            <option value="문척면">문척면</option>
+                                            <option value="월등면">월등면</option>
+                                            <option value="토지면">토지면</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="gis-box">
+                                    <div class="mb20">
+                                        <div class="row clear-fix">
+                                            <label class="form-name" for="longitude">경도:</label>
+                                            <input type="text" id="longitude" class="gis-form bg-lightblue">
+                                        </div>
+                                        <div class="row clear-fix">
+                                            <label class="form-name" for="latitude">위도:</label>
+                                            <input type="text" id="latitude" class="gis-form bg-lightblue">
+                                        </div>
+                                    </div>
+                                    <hr color="#cacaca" size="1px">
+                                    <div class="mt20 mb20">
+                                        <div class="row clear-fix">
+                                            <label class="form-name" for="specices">개체종:</label>
+                                            <select id="specices" class="gis-form bg-lightblue">
+                                                <option value="개체종 선택">개체종 선택</option>
+                                            </select>
+                                        </div>
+                                        <div class="row clear-fix">
+                                            <label class="form-name" for="individual">개체ID:</label>
+                                            <input type="text" id="individual" class="gis-form bg-lightblue">
+                                        </div>
+                                    </div>
+                                    <hr color="#cacaca" size="1px">
+                                    <div class="mt20 clear-fix">
+                                        <div class="float-lt chkbox-wr"><input type="checkbox" id="reception"><label for="reception">수신 개체</label></div>
+                                        <div class="float-rt chkbox-wr"><input type="checkbox" id="notReception"><label for="notReception">미수신 개체</label></div>
+                                        <div class="float-lt chkbox-wr"><input type="checkbox" id="type1"><label for="type1">type 1</label></div>
+                                        <div class="float-rt chkbox-wr"><input type="checkbox" id="type2"><label for="type2">type 1</label></div>
+                                    </div>
+                                    <div class="txt-align-lt mt20 mb20">
+                                        <button type="button" class="btn-xl bg-skyblue white">내 관심지역 보기</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 레이어 -->
+                    <div class="gis-modal layer" id="leftLayer2">
+                        <button class="gis-open-left" id="leftLayerBtn2"><span class="skip">옵션 열기</span></button>
+                        <div class="gis-modal-wrap">
+                            <form>
+                                <div class="gis-box search mt10 mb10">
+                                    <h3 class="gis-tit">레이어</h3>
+                                    <div class="row clear-fix">
+                                        <h4 class="gis-subTit">행정경계구역</h4>
+                                        <label class="form-name" for="city2">시도 :</label>
+                                        <select class="gis-form bg-lightblue" id="city2">
+                                            <option value="시도 선택">시도 선택</option>
+                                            <option value="전라남도">전라남도</option>
+                                            <option value="전라북도">전라북도</option>
+                                            <option value="서울특별시">서울특별시</option>
+                                            <option value="대전광역시">대전광역시</option>
+                                        </select>
+                                    </div>
+                                    <div class="row clear-fix">
+                                        <label class="form-name" for="county2">시군구 :</label>
+                                        <select class="gis-form bg-lightblue" id="county2">
+                                            <option value="시군구 선택">시군구 선택</option>
+                                            <option value="구례군">구례군</option>
+                                            <option value="순천시">순천시</option>
+                                            <option value="광양시">광양시</option>
+                                        </select>
+                                    </div>
+                                    <div class="row clear-fix">
+                                        <label class="form-name" for="neibh2">읍면동 :</label>
+                                        <select class="gis-form bg-lightblue" id="neibh2">
+                                            <option value="읍면동 선택">읍면동 선택</option>
+                                            <option value="구례읍">구례읍</option>
+                                            <option value="문척면">문척면</option>
+                                            <option value="월등면">월등면</option>
+                                            <option value="토지면">토지면</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="gis-box mb10">
+                                    <div class="row clear-fix">
+                                        <h4 class="gis-subTit">지오펜스</h4>
+                                        <div class="gis-items icon layer-geo">
+                                            <ol class="clear-fix">
+                                                <li class="geo-edge"><div class="poi-inner"><input type="checkbox" id="geo-list1" title="경계 선택"><label for="geo-list1">경계</label></div></li>
+                                                <li class="geo-location"><div class="poi-inner"><input type="checkbox" id="geo-list2" title="이벤트 위치정보 선택"><label for="geo-list2">이벤트 위치정보</label></div></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gis-box mb10">
+                                    <div class="row clear-fix">
+                                        <div class="clear-fix mt10 mb10">
+                                            <h4 class="gis-subTit mt5 float-lt">이동경로(최대 5개체)</h4>
+                                            <button type="button" class="gis-tab-btn float-rt" data-pop-btn="조회">조회</button>
+                                        </div>
+                                        <div class="gis-items">
+                                            <table class="tb-default gis">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="bg-lightblue" scope="col">NO</th>
+                                                        <th class="bg-lightblue" scope="col">개체ID</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td scope="row">1</td>
+                                                        <td>KM-03</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td scope="row">2</td>
+                                                        <td>KM-05</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gis-box mb10">
+                                    <div class="row clear-fix">
+                                        <h4 class="gis-subTit">POI</h4>
+                                        <div class="gis-items icon wd50 layer-poi">
+                                            <ol class="clear-fix">
+                                                <li class="poi-trap"><div class="poi-inner"><input type="checkbox" id="poi-list1" title="포획트랩 선택"><label for="poi-list1">포획트랩</label></div></li>
+                                                <li class="poi-shelter"><div class="poi-inner"><input type="checkbox" id="poi-list2" title="대피소 선택"><label for="poi-list2">대피소</label></div></li>
+                                                <li class="poi-iot"><div class="poi-inner"><input type="checkbox" id="poi-list3" title="IoT통신시설물 선택"><label for="poi-list3">IoT<br>통신시설물</label></div></li>
+                                                <li class="poi-bee"><div class="poi-inner"><input type="checkbox" id="poi-list4" title="양봉장 선택"><label for="poi-list4">양봉장</label></div></li>
+                                                <li class="poi-chicken"><div class="poi-inner"><input type="checkbox" id="poi-list5" title="양계장 선택"><label for="poi-list5">양계장</label></div></li>
+                                                <li class="poi-reception"><div class="poi-inner"><input type="checkbox" id="poi-list6" title="수신개체 선택"><label for="poi-list6">수신개체</label></div></li>
+                                                <li class="poi-Noreception"><div class="poi-inner"><input type="checkbox" id="poi-list7" title="미수신개체 선택"><label for="poi-list7">미수신개체</label></div></li>
+                                                <li class="poi-moin"><div class="poi-inner"><input type="checkbox" id="poi-list8" title="무인안내시스템 선택"><label for="poi-list8">무인안내<br>시스템</label></div></li>
+                                                <li class="camera"><div class="poi-inner"><input type="checkbox" id="poi-list9" title="무인센서카메라 선택"><label for="poi-list9">무인센서<br>카메라</label></div></li>
+                                                <li class="hanbong"><div class="poi-inner"><input type="checkbox" id="poi-list10" title="한봉 선택"><label for="poi-list10">한봉</label></div></li>
+                                                <li class="gaok"><div class="poi-inner"><input type="checkbox" id="poi-list11" title="단독가옥 선택"><label for="poi-list11">단독가옥</label></div></li>
+                                                <li class="flag"><div class="poi-inner"><input type="checkbox" id="poi-list12" title="깃발 선택"><label for="poi-list12">깃발</label></div></li>
+                                                <li class="gom"><div class="poi-inner"><input type="checkbox" id="poi-list13" title="곰 선택"><label for="poi-list13">곰</label></div></li>
+                                                <li class="fox"><div class="poi-inner"><input type="checkbox" id="poi-list14" title="여운 선택"><label for="poi-list14">여우</label></div></li>
+                                                <li class="sanyang"><div class="poi-inner"><input type="checkbox" id="poi-list15" title="산양 선택"><label for="poi-list15">산양</label></div></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gis-box mb10">
+                                       <div class="row clear-fix">
+                                           <h4 class="gis-subTit">기초자료</h4>
+                                           <div class="gis-items icon wd50 layer-poi">
+                                               <ol class="clear-fix">
+                                                   <li class="bulbeop"><div class="poi-inner"><input type="checkbox" id="basicData1" title="불법엽구 선택"><label for="basicData1">불법엽구</label></div></li>
+                                                   <li class="roadkill"><div class="poi-inner"><input type="checkbox" id="basicData2" title="로드킬 선택"><label for="basicData2">로드킬</label></div></li>
+                                                   <li class="baeseol"><div class="poi-inner"><input type="checkbox" id="basicData3" title="배설물 선택"><label for="basicData3">배설물</label></div></li>
+                                               </ol>
+                                           </div>
+                                       </div>
+                                </div>
+                                <div class="gis-box">
+                                    <div class="row clear-fix">
+                                        <h4 class="gis-subTit">주제도</h4>
+                                        <div class="gis-items icon">
+                                            <ol class="clear-fix">
+                                                <li class="theme-monitor mb5"><a href="#">공원자원조사 모니터링</a></li>
+                                                <li class="theme-tracking mb5"><a href="#">복원동물 추적정보</a></li>
+                                                <li class="theme-vegt"><a href="#">정밀식생도</a></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 공간정보 -->
+                    <div class="gis-modal space" id="leftLayer3">
+                        <button class="gis-open-left" id="leftLayerBtn3"><span class="skip">옵션 열기</span></button>
+                        <div class="gis-modal-wrap">
+                            <form>
+                                <div class="gis-box mt10 mb10">
+                                    <h3 class="gis-tit">공간정보관리</h3>
+                                    <div id="tab-wrap" class="gis">
+                                        <ul class="tabs">
+                                            <li class="current" data-tab="tab1"><a href="#">관심지역</a></li>
+                                            <li data-tab="tab2"><a href="#">지오펜스</a></li>
+                                            <li data-tab="tab3"><a href="#">야생동물 위치</a></li>
+                                            <li data-tab="tab4"><a href="#">POI위치</a></li>
+                                            <li data-tab="tab5"><a href="#">주제도</a></li>
+                                        </ul>
+                                        <div id="tab1" class="tab-con current gis-tab1">
+                                            <h4 class="gis-subTit">내 관심지역</h4>
+                                            <div class="bd-foggy pd20 local">
+                                                <div class="row clear-fix">
+                                                    <label class="form-name" for="markArea">관심지역명 : </label>
+                                                    <input type="text" class="gis-form bg-lightblue input-md" id="markArea">
+                                                </div>
+                                                <div class="row clear-fix">
+                                                    <label class="form-name" for="city3">시도 :</label>
+                                                    <select class="gis-form bg-lightblue select-lg" id="city3">
+                                                        <option value="시도 선택">시도 선택</option>
+                                                        <option value="전라남도">전라남도</option>
+                                                        <option value="전라북도">전라북도</option>
+                                                        <option value="서울특별시">서울특별시</option>
+                                                        <option value="대전광역시">대전광역시</option>
+                                                    </select>
+                                                </div>
+                                                <div class="row clear-fix">
+                                                    <label class="form-name" for="county3">시군구 :</label>
+                                                    <select class="gis-form bg-lightblue select-lg" id="county3">
+                                                        <option value="시군구 선택">시군구 선택</option>
+                                                        <option value="구례군">구례군</option>
+                                                        <option value="순천시">순천시</option>
+                                                        <option value="광양시">광양시</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="txt-align-rt mt20 mb20">
+                                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                                            </div>
+                                        </div>
+
+                                        <div id="tab2" class="tab-con tab2-geo">
+                                            <div class="row clear-fix">
+                                                <div class="gis-geo">
+                                                    <label for="choiceForGroup1" class="form-name">그룹선택 : </label>
+                                                    <select id="choiceForGroup1" class="bg-lightblue select-md gis-form">
+                                                        <option value="그룹선택">그룹선택</option>
+                                                    </select>
+                                                </div>
+                                                <div class="gis-geo">
+                                                    <label for="manageName" class="form-name">관리명 : </label>
+                                                    <input type="text" class="bg-lightblue select-md gis-form" id="manageName">
+                                                </div>
+                                                <div class="gis-geo">
+                                                    <label for="objectValue" class="form-name">개체종 : </label>
+                                                    <select id="objectValue" class="bg-lightblue select-md gis-form">
+                                                        <option value="전체">전체</option>
+                                                    </select>
+                                                </div>
+                                                <div class="gis-geo">
+                                                    <label for="objectID" class="form-name">개체ID : </label>
+                                                    <input type="text" class="bg-lightblue select-md gis-form" id="objectID">
+                                                </div>
+                                            </div>
+                                            <div class="row geofence">
+                                                <table class="tb-default gis list">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="bg-lightblue">NO</th>
+                                                            <th class="bg-lightblue">그룹</th>
+                                                            <th class="bg-lightblue">관리명</th>
+                                                            <th class="bg-lightblue">개체종</th>
+                                                            <th class="bg-lightblue">개체ID</th>
+                                                            <th class="bg-lightblue">알람<br>여부</th>
+                                                            <th class="bg-lightblue">반경<br>영역</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>Y</td>
+                                                            <td>+5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>N</td>
+                                                            <td>-8</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="clear-fix mt10 mb10 geofence-btn">
+                                                <button type="button" class="btn-sm bg-skyblue white float-lt" data-pop-btn="그룹관리">그룹관리</button>
+                                                <div class="float-rt">
+                                                    <button type="button" class="btn-md bg-skyblue white float-lt mr5">과거설정<br>이력조회</button>
+                                                    <button type="button" class="btn-md bg-skyblue white float-lt">이벤트조회</button>
+                                                </div>
+                                            </div>
+                                            <div class="row mt40 bd-foggy pd20 geofence-box2">
+                                                <div class="mb10">
+                                                    <label for="choiceForGroup2" class="geo-name">그룹 : </label>
+                                                    <select id="choiceForGroup2" class="bg-lightblue geo-form select-lg">
+                                                        <option value="그룹선택">그룹선택</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="geoFormName" class="geo-name">지오펜스명<strong class="red">(*)</strong> : </label>
+                                                    <input type="text" id="geoFormName" class="bg-lightblue  geo-form input-md">
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="radioBtn1" class="geo-name rdo-name">알람여부</label>
+                                                    <div class="radio-form">
+                                                        <input type="radio" id="radioBtn1" class="inline-block" checked>
+                                                        <label for="radioBtn1" class="inline-block mr5">Y</label>
+                                                        <input type="radio" id="radioBtn2" class="inline-block">
+                                                        <label for="radioBtn2" class="inline-block mr5">N</label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="alramSet" class="geo-name">알람설정</label>
+                                                    <select id="alramSet" class="bg-lightblue geo-form select-lg">
+                                                        <option value="진입시">진입시</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="radiusArea" class="geo-name radius-tit">반경영역</label>
+                                                    <div class="radius-box">
+                                                        <select id="radiusArea" class="bg-lightblue input-sm">
+                                                            <option value="+">+</option>
+                                                            <option value="-">-</option>
+                                                        </select>
+                                                        <input type="text" class="bg-lightblue input-sm"><em class="ml5">km</em>
+                                                    </div>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="specices2" class="geo-name rdo-name">개체종</label>
+                                                    <div class="radio-form">
+                                                        <input type="radio" id="specices2" class="inline-block" checked>
+                                                        <label for="specices2" class="inline-block mr5">곰</label>
+                                                        <input type="radio" id="specices3" class="inline-block">
+                                                        <label for="specices3" class="inline-block mr5">여우</label>
+                                                        <input type="radio" id="specices4" class="inline-block">
+                                                        <label for="specices4" class="inline-block">산양</label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="objectID2" class="geo-name">개체ID : </label>
+                                                    <input type="text" id="objectID2" class="bg-lightblue geo-form select-lg">
+                                                </div>
+                                            </div>
+                                            <div class="txt-align-rt mt20 mb20">
+                                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                                            </div>
+                                        </div>
+
+                                        <div id="tab3" class="tab-con">
+                                            <div class="row clear-fix">
+                                                <label for="setID">관리ID : </label>
+                                                <input type="text" id="setID" class="bg-lightblue input-md">
+                                                <button type="button" class="gis-search bg-skyblue"><span class="skip">검색</span></button>
+                                                <div class="float-rt wa-resi-btn">
+                                                    <button type="button" class="btn-sm bg-skyblue white">야생동물<br>등록</button>
+                                                    <button type="button" class="btn-sm bg-skyblue white mobile">야생동물 등록</button>
+                                                </div>
+                                                <table class="tb-default gis mt20 list wa-location">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="bg-lightblue">NO</th>
+                                                            <th class="bg-lightblue">X</th>
+                                                            <th class="bg-lightblue">Y</th>
+                                                            <th class="bg-lightblue">고도</th>
+                                                            <th class="bg-lightblue">입력구분</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>25,2</td>
+                                                            <td>21.1</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="row mt40 bd-foggy pd20 geofence-box2">
+                                                <div class="mb10">
+                                                    <label for="coordin" class="geo-name2">좌표계 : </label>
+                                                    <select id="coordin" class="bg-lightblue geo-form2 select-lg">
+                                                        <option value="좌표계 선택">좌표계 선택</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb10">
+                                                    <div class="width49 inline-block">
+                                                        <label for="coordin" class="geo-name2">위치X : </label>
+                                                        <input type="text" class="geo-form2 bg-lightblue">
+                                                    </div>
+                                                    <div class=" width49 inline-block">
+                                                        <label for="coordin" class="geo-name2">위치Y : </label>
+                                                        <input type="text" class="geo-form2 bg-lightblue">
+                                                    </div>
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="coordin" class="geo-name2">고도 : </label>
+                                                    <input type="text" class="bg-lightblue geo-form2 input-md">
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="inputValue" class="geo-name2">입력구분 : </label>
+                                                    <select id="inputValue" class="bg-lightblue geo-form2 select-lg">
+                                                        <option value="입력구분">입력구분</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="txt-align-rt mt20 mb20">
+                                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                                            </div>
+                                        </div>
+
+                                        <div id="tab4" class="tab-con">
+                                            <div class="gis-geo clear-fix poi">
+                                                <label class="form-name" for="city4">시도 :</label>
+                                                <select class="gis-form bg-lightblue poi-city" id="city4">
+                                                    <option value="시도 선택">시도 선택</option>
+                                                    <option value="전라남도">전라남도</option>
+                                                    <option value="전라북도">전라북도</option>
+                                                    <option value="서울특별시">서울특별시</option>
+                                                    <option value="대전광역시">대전광역시</option>
+                                                </select>
+                                            </div>
+                                            <div class="gis-geo clear-fix">
+                                                <label class="form-name" for="county4">시군구 :</label>
+                                                <select class="gis-form bg-lightblue" id="county4">
+                                                    <option value="시군구 선택">시군구 선택</option>
+                                                    <option value="구례군">구례군</option>
+                                                    <option value="순천시">순천시</option>
+                                                    <option value="광양시">광양시</option>
+                                                </select>
+                                            </div>
+                                            <div class="row clear-fix poi-loct-value">
+                                                <label class="form-name" for="locationArea">위치구분 :</label>
+                                                <select class="locationArea-input bg-lightblue ml14 select-lg" id="locationArea">
+                                                    <option value="위치구분">위치구분</option>
+                                                </select>
+                                            </div>
+                                            <div class="row clear-fix">
+                                                <label for="manageName2">관리명 : </label>
+                                                <input type="text" id="manageName2" class="bg-lightblue input-md">
+                                                <button type="button" class="gis-search bg-skyblue"><span class="skip">검색</span></button>
+                                                <div class="float-rt wa-resi-btn">
+                                                    <button type="button" class="btn-sm bg-skyblue white" data-pop-btn="poi정보등록">POI등록</button>
+                                                </div>
+                                            </div>
+                                            <div class="poi-tb">
+                                                <table class="tb-default gis mt20 list">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="bg-lightblue">NO</th>
+                                                        <th class="bg-lightblue">구분</th>
+                                                        <th class="bg-lightblue">관리명</th>
+                                                        <th class="bg-lightblue">X</th>
+                                                        <th class="bg-lightblue">Y</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr data-pop-btn="poi정보조회수정">
+                                                        <td>1</td>
+                                                        <td>25,2</td>
+                                                        <td>21.1</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr data-pop-btn="poi정보조회수정">
+                                                        <td>2</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr data-pop-btn="poi정보조회수정">
+                                                        <td>3</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr data-pop-btn="poi정보조회수정">
+                                                        <td>4</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="row mt40 bd-foggy pd20 poi-box2">
+                                                <div class="mb10">
+                                                    <label for="manageName3" class="geo-name2">관리명 : </label>
+                                                    <input type="text" class="bg-lightblue geo-form2 input-md" id="manageName3">
+                                                </div>
+                                                <div class="mb10">
+                                                    <label for="coordin2" class="geo-name2">좌표계 : </label>
+                                                    <select id="coordin2" class="bg-lightblue geo-form2 select-lg">
+                                                        <option value="좌표계 선택">좌표계 선택</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb10">
+                                                    <div class="width49 inline-block">
+                                                        <label for="coordinX" class="geo-name2">위치X : </label>
+                                                        <input type="text" class="geo-form2 bg-lightblue" id="coordinX">
+                                                    </div>
+                                                    <div class=" width49 inline-block">
+                                                        <label for="coordinY" class="geo-name2">위치Y : </label>
+                                                        <input type="text" class="geo-form2 bg-lightblue" id="coordinY">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="txt-align-rt mt20 mb20">
+                                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                                            </div>
+                                        </div>
+                                        <div id="tab5" class="tab-con map">
+                                            <h4 class="gis-subTit">주제도</h4>
+                                            <div class="row clear-fix pd20 bd-foggy">
+                                                <div class="row"><input type="checkbox" id="subjectCheck1" class="inline-block mr5"><label for="subjectCheck1">공원자원조사 모니터링 정보</label></div>
+                                                <div class="row"><input type="checkbox" id="subjectCheck2" class="inline-block mr5"><label for="subjectCheck2">복원동물 추적 정보</label></div>
+                                                <div class="row"><input type="checkbox" id="subjectCheck3" class="inline-block mr5"><label for="subjectCheck3">정밀식생도</label></div>
+                                            </div>
+                                            <div class="jujedo-box">
+                                                <label for="jujedoName1" class="geo-name2">주제도명 : </label>
+                                                <input type="text" class="bg-lightblue geo-form2 input-md" id="jujedoName1">
+                                            </div>
+                                            <div class="txt-align-rt mt20 mb20">
+                                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 팝업레이어 -->
+                    <div class="gis layer-pop pop-wd1200 group-set" data-pop-window="그룹관리">
+                        <div class="clear-fix mb20">
+                            <p class="pop-title float-lt">그룹 목록</p>
+                            <div class="float-rt group-name-area">
+                                <label for="groupName">그룹명 : </label>
+                                <input type="text" id="groupName" class="bg-lightblue input-lg group-name-pop">
+                                <button type="button" class="btn-xs bg-darkgray white">초기화</button>
+                                <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                                <button type="button" class="btn-xs bg-skyblue white">저장</button>
+                            </div>
+                        </div>
+                        <div class="gis-pop-height">
+                            <table class="tb-default">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-lightblue" scope="col">NO</th>
+                                        <th class="bg-lightblue" scope="col">그룹명</th>
+                                        <th class="bg-lightblue" scope="col">해당 지오펜스 구역 수</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">1</td>
+                                        <td>서식지 동편</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">2</td>
+                                        <td>서식지 북편</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">3</td>
+                                        <td>민가 A</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">4</td>
+                                        <td>민가 B</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">5</td>
+                                        <td>민가 C</td>
+                                        <td>3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clear-fix mt20 mb20">
+                            <p class="pop-title float-lt">그룹 지오펜스 목록</p>
+                            <div class="float-rt geo-tb-list">
+                                <table class="tb-default">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-lightblue pd5"><label for="groupName2">지오펜스명 : </label></th>
+                                            <td class="pd5"><input type="text" class="bg-lightblue input-md" id="groupName2"></td>
+                                            <th class="bg-lightblue pd5"><label for="alramSet2">알람여부</label></th>
+                                            <td class="pd5">
+                                                <input type="checkbox" id="alramSet2" class="mr5 inline-block"><label for="alramSet2" class="mr5 inline-block">Y</label>
+                                                <input type="checkbox" id="alramSet3" class="mr5 inline-block"><label for="alramSet3" class="mr5 inline-block">N</label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="txt-align-rt">
+                            <button type="button" class="btn-xs bg-skyblue white">조회</button>
+                        </div>
+                        <div class="mt30 clear-fix">
+                            <div class="width45 float-lt tb-area">
+                                <table class="tb-default">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-lightblue" scope="col">NO</th>
+                                            <th class="bg-lightblue" scope="col">그룹</th>
+                                            <th class="bg-lightblue" scope="col">관리명</th>
+                                            <th class="bg-lightblue" scope="col">개체종</th>
+                                            <th class="bg-lightblue" scope="col">개체ID</th>
+                                            <th class="bg-lightblue" scope="col">알림여부</th>
+                                            <th class="bg-lightblue" scope="col">반경영역</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Y</td>
+                                            <td>+5</td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">2</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>N</td>
+                                            <td>-8</td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">5</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">6</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="float-lt ml30 mt50 arrow-btn">
+                                <button type="button" class="btn-xs bg-skyblue white lt_btn mb20"><span class="skip">왼쪽으로</span></button>
+                                <button type="button" class="btn-xs bg-skyblue white rt_btn"><span class="skip">오른쪽으로</span></button>
+                            </div>
+                            <div class="width45 float-rt mb20 tb-area">
+                                <table class="tb-default">
+                                    <thead>
+                                    <tr>
+                                        <th class="bg-lightblue" scope="col">NO</th>
+                                        <th class="bg-lightblue" scope="col">그룹</th>
+                                        <th class="bg-lightblue" scope="col">관리명</th>
+                                        <th class="bg-lightblue" scope="col">개체종</th>
+                                        <th class="bg-lightblue" scope="col">개체ID</th>
+                                        <th class="bg-lightblue" scope="col">알림여부</th>
+                                        <th class="bg-lightblue" scope="col">반경영역</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td scope="row">1</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Y</td>
+                                        <td>+5</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">2</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>N</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="txt-align-rt">
+                            <button type="button" class="btn-xs bg-darkgray white pop-btn">닫기</button>
+                        </div>
+                    </div>
+                    <div class="gis layer-pop pop-wd600" data-pop-window="조회">
+                        <table class="tb-default">
+                            <tbody>
+                                <tr>
+                                    <th class="bg-lightblue">이동기간<strong class="red">(*)</strong></th>
+                                    <td>
+                                        <div class="calendar-wr float-lt">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력클릭"> ~ &nbsp;
+                                        </div>
+                                        <div class="calendar-wr float-lt">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력클릭">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue">개체 종</th>
+                                    <td>
+                                        <input type="checkbox" id="animalsValue1" class="inline-block"><label for="animalsValue1" class="inline-block ml5 mr10">곰</label>
+                                        <input type="checkbox" id="animalsValue2" class="inline-block"><label for="animalsValue2" class="inline-block ml5 mr10">여우</label>
+                                        <input type="checkbox" id="animalsValue3" class="inline-block"><label for="animalsValue3" class="inline-block">산양</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue">개체 ID</th>
+                                    <td>
+                                        <input type="text" class="inline-block bg-lightblue input-lg">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="txt-align-rt mt20 mb20">
+                            <button type="button" class="btn-xs bg-skyblue white">조회</button>
+                        </div>
+                        <div class="gis-pop-height">
+                            <table class="tb-default">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-lightblue">선택</th>
+                                        <th class="bg-lightblue">개체</th>
+                                        <th class="bg-lightblue">종</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>KM-04</td>
+                                        <td>곰</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>KM-05</td>
+                                        <td>곰</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>KM-06</td>
+                                        <td>곰</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>KM-07</td>
+                                        <td>곰</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>KM-08</td>
+                                        <td>곰</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="txt-align-rt mt20 mb20">
+                            <button type="button" class="btn-sm bg-skyblue white">선택완료</button>
+                            <button type="button" class="btn-xs bg-darkgray white pop-btn">닫기</button>
+                        </div>
+                    </div>
+                    <!-- 개체목록 -->
+                    <div class="objectList" id="btmList">
+                        <button class="gis-open-btm" id="btmListBtn"><span class="skip">옵션 열기</span></button>
+                        <div class="objectList_wr pd20">
+                            <div class="modal-tab-wrap">
+                                <ul class="modal-tabs">
+                                    <li class="current" data-tab="modalTab1"><a href="#">탭1</a></li>
+                                    <li data-tab="modalTab2"><a href="#">탭2</a></li>
+                                    <li data-tab="modalTab3"><a href="#">탭3</a></li>
+                                    <li data-tab="modalTab4"><a href="#">탭4</a></li>
+                                </ul>
+                                <div id="modalTab1" class="modal-tab-con current">
+                                    <table class="tb-default btm-tb">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-lightblue" scope="col">NO</th>
+                                            <th class="bg-lightblue" scope="col">개체ID</th>
+                                            <th class="bg-lightblue" scope="col">종</th>
+                                            <th class="bg-lightblue" scope="col">X</th>
+                                            <th class="bg-lightblue" scope="col">Y</th>
+                                            <th class="bg-lightblue" scope="col">상세조회</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>KM-04</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>KM-05</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="modalTab2" class="modal-tab-con">
+                                    <table class="tb-default btm-tb">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-lightblue" scope="col">NO</th>
+                                            <th class="bg-lightblue" scope="col">개체ID</th>
+                                            <th class="bg-lightblue" scope="col">종</th>
+                                            <th class="bg-lightblue" scope="col">X</th>
+                                            <th class="bg-lightblue" scope="col">Y</th>
+                                            <th class="bg-lightblue" scope="col">상세조회</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>KM-04</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>KM-05</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="modalTab3" class="modal-tab-con">
+                                    <table class="tb-default btm-tb">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-lightblue" scope="col">NO</th>
+                                            <th class="bg-lightblue" scope="col">개체ID</th>
+                                            <th class="bg-lightblue" scope="col">종</th>
+                                            <th class="bg-lightblue" scope="col">X</th>
+                                            <th class="bg-lightblue" scope="col">Y</th>
+                                            <th class="bg-lightblue" scope="col">상세조회</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>KM-04</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>KM-05</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="modalTab4" class="modal-tab-con">
+                                    <table class="tb-default btm-tb">
+                                        <thead>
+                                        <tr>
+                                            <th class="bg-lightblue" scope="col">NO</th>
+                                            <th class="bg-lightblue" scope="col">개체ID</th>
+                                            <th class="bg-lightblue" scope="col">종</th>
+                                            <th class="bg-lightblue" scope="col">X</th>
+                                            <th class="bg-lightblue" scope="col">Y</th>
+                                            <th class="bg-lightblue" scope="col">상세조회</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>KM-04</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>KM-05</td>
+                                            <td>곰</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button type="button" class="bg-skyblue white col-btn">조회</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--poi 정보등록-->
+                    <div class="gis layer-pop pop-wd500 poi-inform-resit" data-pop-window="poi정보등록">
+                        <p class="header2 mb20 fw-500">POI 정보 등록 화면</p>
+                        <div class="row clear-fix mb10">
+                            <label class="form-name" for="locationArea2">위치구분 :</label>
+                            <select class="locationArea-input bg-lightblue ml14 select-lg" id="locationArea2">
+                                <option value="포획트랩">포획트랩</option>
+                            </select>
+                        </div>
+                        <div class="tb-type2">
+                            <table class="tb-default">
+                            <tbody>
+                                <tr>
+                                    <th class="bg-lightblue col40">관리명<strong class="red">(*)</strong></th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">설치일자<strong class="red">(*)</strong></th>
+                                    <td>
+                                        <div class="calendar-wr">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">타입</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">주파수</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">카메라 설치 유무</th>
+                                    <td>
+                                        <input type="radio" id="radioBtn3" class="inline-block" checked>
+                                        <label for="radioBtn3" class="inline-block mr5">유</label>
+                                        <input type="radio" id="radioBtn4" class="inline-block">
+                                        <label for="radioBtn4" class="inline-block mr5">무</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">최종점검일</th>
+                                    <td>
+                                        <div class="calendar-wr">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">점검자</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">위치</th>
+                                    <td>
+                                        <div class="row mb10 coordin">
+                                            <label for="coordin4" class="geo-name2">좌표계</label>
+                                            <select id="coordin4" class="bg-lightblue geo-form2 select-lg">
+                                                <option value="좌표계 선택">좌표계 선택</option>
+                                            </select>
+                                        </div>
+                                        <div class="inline-block mr10 coordin-item">
+                                            <span class="mr10">X</span>
+                                            <input type="text" class="input-sm bg-lightblue">
+                                        </div>
+                                        <div class="inline-block mr10 coordin-item">
+                                            <span class="mr10">Y</span>
+                                            <input type="text" class="input-sm bg-lightblue">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="txt-align-rt mt20 mb20">
+                            <button type="button" class="btn-xs bg-darkgray white pop-btn">초기화</button>
+                            <button type="button" class="btn-xs bg-skyblue white pop-btn">저장</button>
+                        </div>
+                    </div>
+                    <!--poi 정보조회/수정 화면-->
+                    <div class="gis layer-pop pop-wd500" data-pop-window="poi정보조회수정">
+                        <p class="header2 mb20 fw-500">POI 정보 조회/수정 화면</p>
+                        <div class="row clear-fix mb10">
+                            <p class="header3 txt-align-lt">포획트랩</p>
+                        </div>
+                        <div class="tb-type2">
+                            <table class="tb-default">
+                                <tbody>
+                                <tr>
+                                    <th class="bg-lightblue col40">관리명<strong class="red">(*)</strong></th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">설치일자<strong class="red">(*)</strong></th>
+                                    <td>
+                                        <div class="calendar-wr">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">타입</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">주파수</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">카메라 설치 유무</th>
+                                    <td>
+                                        <input type="radio" id="radioBtn5" class="inline-block" checked>
+                                        <label for="radioBtn5" class="inline-block mr5">유</label>
+                                        <input type="radio" id="radioBtn6" class="inline-block">
+                                        <label for="radioBtn6" class="inline-block mr5">무</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">최종점검일</th>
+                                    <td>
+                                        <div class="calendar-wr">
+                                            <input type="text" class="input-md bg-lightblue date_picker">
+                                            <img src="../images/ico_calendar.png" alt="달력">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">점검자</th>
+                                    <td><input type="text" class="bg-lightblue input-full"></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-lightblue col40">위치</th>
+                                    <td>
+                                        <div class="row mb10">
+                                            <label for="coordin5" class="geo-name2">좌표계</label>
+                                            <select id="coordin5" class="bg-lightblue geo-form2 select-lg">
+                                                <option value="좌표계 선택">좌표계 선택</option>
+                                            </select>
+                                        </div>
+                                        <div class="inline-block mr10">
+                                            <span class="mr10">X</span>
+                                            <input type="text" class="input-sm bg-lightblue">
+                                        </div>
+                                        <div class="inline-block mr10">
+                                            <span class="mr10">Y</span>
+                                            <input type="text" class="input-sm bg-lightblue">
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="txt-align-rt mt20 mb20">
+                            <button type="button" class="btn-xs bg-darkgray white pop-btn">초기화</button>
+                            <button type="button" class="btn-xs bg-darkgray white">삭제</button>
+                            <button type="button" class="btn-xs bg-skyblue white pop-btn">저장</button>
+                        </div>
+                    </div>
+
+                    <div class="gis-map">
+                     <!-- 구글지도 -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156315.24079998527!2d127.5938472658884!3d35.31587276951399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356e4c7b8a83dafd%3A0x3f72563fe6e62f59!2z7KeA66as7IKw!5e1!3m2!1sko!2skr!4v1602688842424!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
