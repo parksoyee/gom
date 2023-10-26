@@ -1,0 +1,321 @@
+@charset "utf-8";
+
+.wrap{min-width:inherit;}
+.inform-set .tb-type2 table td .calendar-wr input[type="text"]{width: calc(100% - 46px) !important;}
+#tab-wrap .box-file-input .filename{width: 260px;}
+.mo-header{display: none;}
+.tb-type2.mobile{display: none;}
+.search-form{display: none;}
+.search-btn{display: none;}
+.wa-resi-btn button.mobile{display: none;}
+@media (min-width:1842px) {
+    .group-select input{width: calc(100% - 120px) !important;}
+}
+@media (max-width:1841px) {
+    .group-select button{min-width:80px;}
+    .group-select input{width: calc(100% - 100px) !important;}
+    .inform-set .box-file-input .filename{width: calc(100% - 86px);}
+}
+@media (max-width:1654px) {
+    .group-set{width:1000px; margin-left:-500px !important;}
+    .arrow-btn{
+        margin: 0 12px !important;
+        margin-top: 90px !important;
+    }
+}
+
+@media (max-width:1480px) {
+    .lnb-box{width: 220px;}
+    .body{padding-left:220px;}
+    .right-contents{padding: 30px; padding-top: 110px;}
+}
+
+/*tablet*/
+@media (max-width: 1300px){
+    .header{display: none;}
+    .mo-header{position: absolute;width:100%;height: 70px;top: 0;z-index: 10;background: #fff;display: block;}
+    .mo-logo{margin:0px auto;display: block;width: 380px;margin-top: 13px;}
+    .mo-logo a{width:100%; display: block;}
+    .mo-logo a img{vertical-align: middle;display: inline-block;}
+    .menu-open{width: 38px;height: 24px;background:url("../images/respsv/menu_ico.png") no-repeat left top;background-size: contain;display: block;position: relative;float: left;top: 24px;left: 40px;text-indent: -9999px;font-size: 0;}
+    .lnb-box{display: none;}
+    .lnb-box.mobile{display: block;left: -220px;}
+    .body{padding-left:0;position: relative;}
+    .tb-type2.pc{display: none;}
+    .tb-type2.mobile{display: block; width:100%;}
+    .tb-type2.mobile .wa-set .photo-box{width:100%;border: 1px solid #d6d6d6;height: 280px;}
+    .tb-type2.mobile .wa-set .photo-box.register{padding-top: 110px;}
+    .tb-type2.mobile .wa-set .photo-box.register label{
+        line-height: 31px;
+    }
+    .tb-type2.mobile .wa-set .photo-box img{margin-top: 50px;}
+    .tb-type2.mobile .wa-set ul{}
+    .tb-type2.mobile .wa-set ul li{float:left;width:50%;height: 50px;border: 1px solid #d6d6d6;border-left: 0;border-bottom: 0;}
+    .tb-type2.mobile .wa-set ul li.lt-bd{border-left: 1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li:nth-child(13){border-bottom: 1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li:last-child{border-bottom: 1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li > div{height:100%;}
+    .tb-type2.mobile .wa-set ul li .cell-tit{float:left;height: 100%;display: block;line-height: 50px;border-right: 1px solid #d6d6d6;width: 90px;text-align: center;}
+    .tb-type2.mobile .wa-set ul li .cell-form{float:left;width: calc(100% - 90px);height: 100%;padding: 6px;}
+    .tb-type2.mobile .wa-set ul li .cell-form select{height: 37px;}
+    .tb-type2.mobile .wa-set ul li .cell-form input[type="text"]{width:300px; height: 37px;}
+    .tb-type2.mobile .wa-set ul li .cell-form button{min-width:80px; height:37px;}
+    .tb-type2.mobile .wa-set ul li .cell-form button + input[type="text"]{width: calc(100% - 89px) !important;}
+    .tb-type2.mobile .wa-set ul li .cell-form .calendar-wr > input{width: calc(100% - 45px) !important;}
+    .tb-type2.mobile .wa-set ul li.place{clear:left;width:100%;border-right: 1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li.place .cell-form{padding:0;}
+    .tb-type2.mobile .wa-set ul li.place .cell-form .cell-col{width:50%;height: 100%;float: left;}
+    .tb-type2.mobile .wa-set ul li.place .cell-form .cell-col span{width:60px;}
+    .tb-type2.mobile .wa-set ul li.place .cell-form .cell-col .cell-form{width: calc(100% - 60px);padding: 6px;}
+    .tb-type2.mobile .wa-set ul li.place .cell-form .cell-col:last-child{border-left: 1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li.chk-box{width:100%; margin-top:-1px;}
+    .tb-type2.mobile .wa-set ul li.chk-box label{padding: 16px; display: block;}
+
+    /*gis*/
+    .objectList{width: calc(100% - 70px);}
+    .layer-pop{
+        width: 50% !important;
+        top: 300px;
+        transform: translateX(-50%);
+    }
+    .group-set{
+        width: 80% !important;
+        transform: translate(-50%, -50%);
+        margin: 0 !important;
+    }
+    .poi-inform-resit{
+        margin-top: -200px;
+    }
+}
+@media (max-width:1110px){
+    .tb-area{width:100% !important;}
+    .arrow-btn{margin: 0 !important;text-align: center;width: 100%;padding-top: 20px;}
+    .arrow-btn button{
+        transform: rotate(90deg);
+        display: inline-block;
+    }
+}
+
+@media (max-width:960px){
+    .sensor input[type="text"]{width:100% !important; margin-bottom:4px;}
+    #tab-wrap .tb-default th{padding: 7px 4px;}
+    #tab-wrap .tb-default td{padding: 6px;font-size: 14px;}
+    .tb-type2 select{font-size:14px;}
+    .tb-type2 input{font-size:14px;}
+}
+@media (max-width:930px) {
+    .search-form{display: block;}
+    .search-form ul{}
+    .search-form ul li{width: 50%;float: left;height: 50px;}
+    .search-form ul li span{float: left;font-weight: 600;height: 100%;line-height: 50px;width: 80px;}
+    .search-form ul li > div{float: left;height: 100%;padding-top: 4px;width: calc(100% - 80px);}
+    .search-area .tb-search{display: none;}
+    .search-form ul li > div > .calendar-wr{width: 47%;}
+    .search-form ul li > div > .calendar-wr input[type="text"]{width: calc(100% - 45px) !important;}
+}
+@media (max-width:880px) {
+    .search-form ul li > div em{/* height: 100%; */display: inline-block;width: 10px;vertical-align: middle;}
+    .search-form ul li > div > button{min-width:80px !important;}
+    .search-form ul li > div > button + input[type="text"]{width: calc(100% - 174px) !important;}
+}
+@media (max-width:810px) {
+    .search-form ul li:nth-child(odd) {width: 40%;}
+    .search-form ul li:nth-child(even) {width: 60%;}
+    .search-form ul li > div > button + input[type="text"]{width: calc(100% - 110px) !important;}
+    .poi-inform-resit table th{padding:5px; padding-left:15px;}
+    .poi-inform-resit table td{padding:5px;}
+    .poi-inform-resit table td .coordin label{
+        width: 50px;
+    }
+    .poi-inform-resit table td .coordin select{
+        width: calc(100% - 55px) !important;
+    }
+    .poi-inform-resit table td .coordin-item{margin: 0 !important; width: 50%; float:left;}
+    .poi-inform-resit table td .coordin-item input[type="text"]{
+        width: calc(100% - 25px) !important;
+    }
+    .poi-inform-resit .calendar-wr input[type="text"]{width: calc(100% - 50px) !important;}
+}
+@media (max-width:720px){
+    .tb-type2.mobile .wa-set ul li.col-100{width:100%;}
+    .tb-type2.mobile .wa-set ul li:nth-child(4), .tb-type2.mobile .wa-set ul li:nth-child(6), .tb-type2.mobile .wa-set ul li:nth-child(13){border-left:1px solid #d6d6d6;}
+    .tb-type2.mobile .wa-set ul li > div > .cell-tit{/* border:0; */font-size: 14px;}
+    .tb-type2.mobile .wa-set ul li .cell-form .calendar-wr > input{font-size:14px;}
+    .tb-type2.mobile .wa-set ul li .cell-form button{font-size:14px;}
+    button{font-size:14px;}
+    .search-form ul li{width:100% !important;}
+    .search-form ul li > div > button + input[type="text"]{width: 120px !important;}
+    .search-form ul li > div > input[type="text"]{width: 212px !important;}
+    .search-form ul li > div > select{width: 212px !important;}
+
+    .group-set{
+        margin-left: 30px !important;
+    }
+    .geo-tb-list{width:100%; margin-top:10px;}
+}
+/*mobile*/
+@media (max-width:680px){
+    .mo-logo{width: 310px;margin-top: 18px;}
+    .mo-logo img{display: block; width:100%;}
+    .menu-open{width: 31px; height: 21px; top: 26px;}
+    .gis.layer-pop{width:80% !important;margin-left: 20px;top: 10px;}
+    .group-set{
+        transform: translate(-49%);
+        margin-top: 100px !important;
+    }
+    .group-name-area{margin-top: 20px;}
+    .poi-inform-resit{
+        margin-top: 200px;
+    }
+}
+@media (max-width:640px){
+    .banner-list ul li{width: 30%;}
+    .result-box{margin-top:0 !important;}
+    .result-box p{margin-bottom:20px;}
+}
+
+@media (max-width:590px){
+    .group-name-pop{
+        width: calc(100% - 250px) !important;
+    }
+}
+@media (max-width:502px) {
+    .gis-items.icon.layer-poi ol li {
+        width: 100%;
+        height: 40px;
+    }
+
+    .gis-items.icon.layer-poi ol li:after {
+        top: 8px;
+    }
+}
+@media (max-width:500px) {
+    button{font-size:14px !important;;}
+    .right-contents{padding-left:0;padding-right:0;padding-top: 90px;}
+    .right-contents > h2{font-size: 24px;margin-bottom: 5px !important;text-align: center;}
+    .right-contents > p{text-align: center;font-size: 17px;}
+    .right-contents .con-box{border-radius: 0;}
+    .mo-logo{width: 280px;margin-top: 19px;}
+    .mo-logo img{display: block; width:100%;}
+    .menu-open{width: 28px;height: 18px;top: 27px;left: 20px;}
+    .txt-label{font-size: 13px;}
+    .con-box.box2{padding: 10px; padding-top: 0;}
+    #tab-wrap .tb-default{width: 600px;}
+    #tab-wrap .tabs li{width: 33.3333%;}
+    #tab-wrap .tabs li a{display:block;width:100%;text-align: center;font-size: 13px;}
+    .banner-list ul{text-align: center;}
+    .banner-list ul li{display: inline-block;vertical-align: middle;}
+    .search-form ul li > div > button + input[type="text"]{width: calc(100% - 94px) !important;}
+    .search-form ul li > div > input[type="text"]{width: 100% !important;}
+    .search-form ul li > div > select{width: 100% !important;}
+    .result-box p{margin-bottom:20px; font-size:14px;}
+    .result-box p + div{width:100%;}
+    .result-box p + div label{font-size:14px;}
+    .result-box p + div select{font-size:14px;}
+    .result-box p + div button{font-size:14px; min-width:120px !important; float:right;}
+    .pagination{margin: 10px 0 !important;}
+    .search-btn-pc{display: none;}
+    .search-btn{display: block;margin-top: -10px !important;margin-bottom: 20px;border-radius: 0;height: 50px;}
+    .layer-pop{width: 80% !important;}
+    .gis.layer-pop table td .calendar-wr{margin-bottom:5px;}
+    .gis.layer-pop table td {padding: 6px;}
+    .gis.layer-pop .gis-pop-height {height:180px;}
+    .gis.layer-pop .gis-pop-height table th{padding: 6px;}
+    .gis.layer-pop .gis-pop-height table td{padding: 6px; font-size:14px;}
+
+    .wa-location{width:100% !important;}
+
+
+
+    #leftLayer1, #leftLayer2{width: 260px;}
+    #leftLayer3{width: 280px;}
+    #leftLayer1.hide, #leftLayer2.hide{left: -190px;}
+    #leftLayer3.hide{left: -210px;}
+    .gis-modal.space .gis-tit{padding:20px;}
+    .gis-modal.space .gis-tit:after{width:90%;left: 11px;}
+    .gis-modal.space .gis-box{padding:0px;}
+    .gis-modal.space .tabs{margin-bottom:10px;}
+    .gis-modal.space .tabs li{border-radius: 0px;border: 0;height: 40px;width: 32% !important;margin-right: 0.5%;margin-bottom: 0.5%;}
+    .gis-modal.space .tabs li.current{border-top: 2px solid #3f7eab;}
+    .gis-modal.space .tabs li.current a{font-weight: 600; color:#3f7eab;}
+    .gis-modal.space .tabs li:nth-child(3),.gis-modal.space .tabs li:nth-child(5){margin-right:0;}
+    .gis-modal.space .tabs li a{font-size:13px;line-height: 40px !important;padding: 0 !important;height: 40px !important;}
+    .gis-modal.space #tab1{padding: 0px;border: 0;padding: 10px;}
+    .gis-modal.space #tab1 > h4{}
+    .gis-modal.space #tab1 .local{padding: 3px !important;}
+    .gis-modal.space #tab1 .local label{}
+    .gis-modal.space #tab1 .local input{width: calc(100% - 104px) !important;float: right;}
+    .gis-modal.space #tab1 .local select{width: calc(100% - 104px) !important;float: right;}
+
+    .gis-modal.space #tab2{padding: 0px;border: 0;padding: 10px;}
+    .gis-modal.space #tab2 .gis-geo{width:100%;}
+    .gis-modal.space #tab2 .gis-geo select{width: calc(100% - 71px) !important;}
+    .gis-modal.space #tab2 .gis-geo input{width: calc(100% - 71px) !important;}
+    .gis-modal.space #tab2 .geofence{overflow-x: auto;}
+    .gis-modal.space #tab2 .geofence table{width:300px; !important;}
+    .gis-modal.space #tab2 .geofence-btn button{min-width: 80px !important;}
+    .gis-modal.space #tab2 .geofence-box2{margin-top: 11px !important;padding: 13px !important;}
+    .gis-modal.space #tab2 .geofence-box2 > div > label{}
+    .gis-modal.space #tab2 .geofence-box2 > div > select{width: calc(100% - 114px) !important;}
+    .gis-modal.space #tab2 .geofence-box2 > div > input[type="text"]{width: calc(100% - 114px) !important;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .radio-form{width: calc(100% - 74px) !important;display: inline-block;text-align: right;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .rdo-name{width: 70px;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .radius-tit{width: 100px;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .radius-box{width: calc(100% - 104px);display: inline-block;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .radius-box select{width: 47px !important;}
+    .gis-modal.space #tab2 .geofence-box2 > div > .radius-box input{width: 46px !important;}
+
+    .gis-modal.space #tab3{padding:10px;}
+    .gis-modal.space #tab3 .wa-resi-btn{ width: 100%; margin: 10px 0;}
+    .gis-modal.space #tab3 .wa-resi-btn button{display: none;}
+    .gis-modal.space #tab3 .wa-resi-btn button.mobile{display: block;width: 100%;border-radius: 0;}
+
+    .gis-modal.space #tab3 .geofence-box2{margin-top:15px !important;padding: 13px !important;}
+    .gis-modal.space #tab3 .geofence-box2 > div > .width49 label{width: 51px;}
+    .gis-modal.space #tab3 .geofence-box2 > div > .width49 input{width: 54px;}
+    .gis-modal.space #tab4{padding:10px;}
+    .gis-modal.space #tab4 .gis-geo{width:100%;}
+    .gis-modal.space #tab4 .gis-geo label{width: 66px;}
+    .gis-modal.space #tab4 .gis-geo select{margin:0;width: calc(100% - 77px) !important;}
+    .gis-modal.space #tab4 .poi-loct-value select{width: calc(100% - 78px) !important;}
+
+    .gis-modal.space #tab4 .wa-resi-btn{ width: 100%; margin: 10px 0;}
+    .gis-modal.space #tab4 .wa-resi-btn button{border-radius: 0; width: 100%;}
+
+    .gis-modal.space #tab4 .poi-tb{overflow-x: auto;}
+    .gis-modal.space #tab4 .poi-tb table{width:100%; margin-top:0 !important;}
+    .gis-modal.space #tab4 .poi-box2{padding: 10px !important;margin-top: 20px !important;}
+
+    .gis-modal.space #tab4 .poi-box2 .width49 label{width: 51px;}
+    .gis-modal.space #tab4 .poi-box2 .width49 input{width: 54px;}
+
+    .gis-modal.space #tab5{padding:10px;}
+    .gis-modal.space #tab5 > div{padding:10px !important;}
+    .gis-modal.space #tab5 .jujedo-box input{
+        width: calc(100% - 74px) !important;
+    }
+}
+@media (max-width:400px) {
+    .mo-logo{margin-left:60px;margin-top: 20px;}
+    .menu-open{width: 26px;height: 16px;top: 29px;left: 20px;}
+    .search-form ul li > div > .calendar-wr{width: 46%;}
+    .inform-set-tb{overflow-x: auto;}
+    .inform-set-tb table{width:600px;}
+    .inform-set-tb table th{padding: 10px;}
+    .inform-set-tb table td{padding: 10px;}
+    .pagination li a{font-size:13px;}
+    .objectList{padding:0px !important;}
+    .objectList_wr{padding:10px !important;}
+    .modal-tab-wrap .modal-tabs li a{width:25%;}
+    .modal-tab-wrap .modal-tabs li a{width:100%; text-align: center; font-size: 14px !important;}
+    .modal-tab-wrap .modal-tab-con{padding:5px;}
+    .modal-tab-wrap .modal-tab-con table th{font-size: 14px !important;}
+    .modal-tab-wrap .modal-tab-con table td{font-size: 14px !important;}
+    .modal-tab-wrap .modal-tab-con table td button{font-size: 14px !important;}
+    .objectList_wr .modal-tab-con{overflow: auto;height: 283px;}
+    .objectList_wr .modal-tab-con table{width:400px;}
+    .objectList_wr .modal-tab-con table td{padding:5px;}
+    .modal-tab-wrap .modal-tabs li{width:25%;}
+    .modal-tab-wrap .modal-tabs li a{padding: 10px;}
+
+}
